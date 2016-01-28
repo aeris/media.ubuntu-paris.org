@@ -1,0 +1,18 @@
+@font-face {
+	font-family: 'Flaticon';
+	src: font-url('/fonts/flaticon.ttf');
+	font-weight: normal;
+	font-style: normal;
+}
+
+[class^='flaticon-']:before, [class*=' flaticon-']:before,
+[class^='flaticon-']:after, [class*=' flaticon-']:after {
+	font-family: Flaticon;
+	font-style: normal;
+}
+
+.flaticon-video {
+	&:before {
+		content: '\e000';
+	}
+}

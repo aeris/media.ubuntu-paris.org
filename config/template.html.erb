@@ -1,0 +1,39 @@
+<section id="years">
+	<ul>
+		<% events.each do |key, event|
+			if event[:disabled]
+		%>
+		<li class="inactive">
+			<%= key %>
+		</li>
+			<% elsif key == current_event %>
+		<li class="active">
+			<%= key %>
+		</li>
+			<% else %>
+		<li>
+			<%%= link_to "<%= key %>", "<%= key %>.html" %>
+		</li>
+			<% end
+		end %>
+	</ul>
+</section>
+<section class="videos">
+	<% comparator = ICU::Collation::Collator.new 'nb' %>
+	<% event.each do |day, conferences| %>
+	<div class="day">
+		<h1><%= I18n.l(Date.strptime(day, '%d/%m/%Y')).capitalize rescue day %></h1>
+		<ul>
+			<% conferences.sort { |a, b| comparator.compare a[:title], b[:title] }.each do |conference| %>
+			<li>
+				<%= conference[:title] %>
+				<a href="/videos/<%= current_event %>/<%= conference[:file] %>">
+					<i class="flaticon-video">WebM</i>
+				</a>
+				<p><%= conference[:author] %></p>
+			</li>
+			<% end %>
+		</ul>
+	</div>
+	<% end %>
+</section>

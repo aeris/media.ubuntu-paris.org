@@ -1,4 +1,4 @@
-#= require_tree .
+@import './flaticon.css';
 
 $orange: #dd4814;
 $content-width: 960px;
@@ -70,7 +70,6 @@ header {
 			&.inactive {
 				color: #d3d3d3;
 			}
-
 		}
 	}
 }
@@ -83,11 +82,7 @@ header {
 	.day {
 		margin: 0 10px;
 		padding: 20px 0;
-		flex: 50%;
-
-		&.large {
-			flex: 100%;
-		}
+		flex: 1;
 
 		h1 {
 			padding: 5px 10px;
